@@ -19,10 +19,26 @@
 
     <div class="main-container">
 
+        <div class="box">
+            <article class="media">
+
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <b>Instructions</b>
+                            <br>
+                            <b>Click the "Choose Character" button to select a Marvel character to answer
+                                trivia questions about.</b>
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+
         <nav class="dropdown">
             <div class="dropdown-trigger">
                 <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                    <span>Choose Characters</span>
+                    <span><b>Choose Character</b></span>
                     <span class="icon is-small">
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </span>
@@ -30,39 +46,39 @@
             </div>
             <div class="dropdown-menu" id="dropdown-menu" role="menu">
                 <div class="dropdown-content">
-                    <a href="#" class="dropdown-item">
+                    <a href="bulma2.html" class="dropdown-item">
                         Spider-Man
                     </a>
                     <a class="dropdown-item">
                         Avengers
                     </a>
-                    <a href="#" class="dropdown-item is-active">
+                    <a href="bulma2.html" class="dropdown-item is-active">
                         Iron Man
                     </a>
-                    <a href="#" class="dropdown-item">
-                        Dr. strange
+                    <a href="bulma2.html" class="dropdown-item">
+                        Dr. Strange
                     </a>
-                    <a href="#" class="dropdown-item">
+                    <a href="bulma2.html" class="dropdown-item">
                         Captain America
                     </a>
                 </div>
             </div>
         </nav>
 
-        <div class="userInput">
-            <input class="input" type="text" placeholder="Type Your Nickname">
+        <!-- <div class="userInput">
+            <input class="input" type="text" placeholder="Username">
         </div>
 
         <div class="submit-button">
             <a class="button is-info">
                 Submit
             </a>
-        </div>
+        </div> -->
     </div>
 
 
 
-<!-- Script for the dropdown function -->
+    <!-- Script for the dropdown function -->
     <script>
         let dropdown = document.querySelector('.dropdown');
         dropdown.addEventListener('click', function (event) {
