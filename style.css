@@ -1,4 +1,37 @@
-.dropdown-item{
+.main-container {
+    background-image: url('http://2.bp.blogspot.com/-aVdB996ZL9U/VT3vxu60LGI/AAAAAAAAFZ0/lrFYb_37GlI/s1600/Avengers-Age-of-Ultron-2015-Movie-Poster.jpg');
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     background-color: black;
-    color:#fff;
+    padding: 361px;
+  
 }
+
+.dropdown {
+    position: fixed;
+    margin: 10px;
+    top: 0;
+    left: 0;
+    
+}
+
+.userInput {
+    position: fixed;
+    top: 50%;
+    left: 42%;
+
+}
+
+.submit-button {
+    position: fixed;
+    top: 50%;
+    left: 55.1%;
+
+}
+
+.quiz-container {
+    position: relative;
+}
+
