@@ -40,6 +40,8 @@ $(document).ready(function () {
         timerCnt: timerNumber, //set to 30 
         rightAnswers: 0,
         wrongAnswers: 0,
+        userName = "TEST",
+        score = 0,
 
         countdown: function () {
             game.timerCnt--;
@@ -48,7 +50,6 @@ $(document).ready(function () {
                 game.timesUp();
             }
         },
-
 
         getnextQuestion: function () {
 
@@ -100,7 +101,7 @@ $(document).ready(function () {
             $("#counter-number").text(game.timerCnt);
             card.append("<h3>Correct Answers: " + game.rightAnswers + "</h3>");
             card.append("<h3>Incorrect Answers: " + game.wrongAnswers + "</h3>");
-            card.append("<h3>Unanswered: " + (questions.length - (game.wrongAnswers + game.rightAnswers)) + "</h3>");
+            // Call ScoreboardDisplay(UserName, game.rightAnswers); 
         },
 
         clicked: function (e) { //Check for right answer
@@ -133,8 +134,20 @@ $(document).ready(function () {
                     setTimeout(game.updateQuestion, 3 * 1000);
                 }
             }
+        },
+        
+        GetUsername() {
+            //function to get the User Name and save it for ScoreboardDisplay to display at end of game
+            console.log("Call GetUsername" + userName);
+        },
+
+        ScoreboardDisplay(userName,score) {
+            //Pass UserName strong and score (= rightAnswers) to store in persistent database and display
+            console.log ("Call ScoreboardDisplay");
         }
+    
     };
+
 // MAIN CODE-Start on Click of start button, or     check for answer to questions
 
     $(document).on("click", ".answer-button", function (e) {
