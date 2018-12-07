@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<<<<<<< HEAD
     <title>Third Page</title>
+=======
+    <title>Last Page</title>
+>>>>>>> 660d9a1dbca9b6ccadf303609ebd88935cf1a783
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="bulma.css">
@@ -16,6 +20,7 @@
 
     <!-- main container containing the background image and dropbown button -->
 
+<<<<<<< HEAD
 
 
 
@@ -68,6 +73,57 @@
                 Submit
             </a>
         </div>
+=======
+    <div class="main-container">
+
+        <nav class="dropdown">
+            <div class="dropdown-trigger">
+                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                    <span>Choose Characters</span>
+                    <span class="icon is-small">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content">
+                    <a href="#" class="dropdown-item">
+                        Spider-Man
+                    </a>
+                    <a class="dropdown-item">
+                        Avengers
+                    </a>
+                    <a href="#" class="dropdown-item is-active">
+                        Iron Man
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        Dr. strange
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        Captain America
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- user informaion and score box -->
+
+        <!-- <nav class="box">
+            <article class="media">
+
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <strong>Nickname</strong> <small>score</small> <small>playtime</small>
+                            <br>
+                            great!
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </nav>
+
+>>>>>>> 660d9a1dbca9b6ccadf303609ebd88935cf1a783
  -->
 
 
@@ -88,6 +144,7 @@
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -188,6 +245,15 @@
 
     <script type="text/javascript" src="project.js"></script>
 
+=======
+        <script>
+            let dropdown = document.querySelector('.dropdown');
+            dropdown.addEventListener('click', function (event) {
+                event.stopPropagation();
+                dropdown.classList.toggle('is-active');
+            });
+        </script>
+>>>>>>> 660d9a1dbca9b6ccadf303609ebd88935cf1a783
 
 
 
