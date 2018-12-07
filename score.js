@@ -45,6 +45,7 @@ database.ref('Scores').orderByChild('score').on('value', function(scoreOrder) {
         scoreBoardTemp.push(scoreInstance); // Pushes above array onto a separate one for a 2D array
         })
         scoreOrderedList = scoreBoardTemp.reverse(); // Preserves current sorted score array without pushing on duplicates
+        scoreOrderedList.length = 10; // Cut out extra values after the 12th score (scoreboard is top 10)
     }, function(error) {
         console.log("Error code: " + error.code);
     });
