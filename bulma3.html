@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Last Page</title>
+    <title>Third Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="bulma.css">
@@ -15,83 +15,43 @@
 <body>
 
     <!-- main container containing the background image and dropbown button -->
-
     <div class="main-container">
 
-        <nav class="dropdown">
-            <div class="dropdown-trigger">
-                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                    <span>Choose Characters</span>
-                    <span class="icon is-small">
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                </button>
-            </div>
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                <div class="dropdown-content">
-                    <a href="#" class="dropdown-item">
-                        Spider-Man
-                    </a>
-                    <a class="dropdown-item">
-                        Avengers
-                    </a>
-                    <a href="#" class="dropdown-item is-active">
-                        Iron Man
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        Dr. strange
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        Captain America
-                    </a>
-                </div>
-            </div>
-        </nav>
-
-        <!-- user informaion and score box -->
-
-        <!-- <nav class="box">
-            <article class="media">
-
-                <div class="media-content">
-                    <div class="content">
-                        <p>
-                            <strong>Nickname</strong> <small>score</small> <small>playtime</small>
-                            <br>
-                            great!
-                        </p>
+        <div class="field">
+            <div class="box-3">
+                <article class="media">
+                    <div class="media-left">
+                        <figure class="image is-128x128">
+                            <img src="https://pbs.twimg.com/profile_images/626570494066561025/lCwDgGke_400x400.jpg" alt="Image">
+                        </figure>
                     </div>
-                </div>
-            </article>
-        </nav>
-
- -->
-
-
-
-
-
-
-
-
-
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>Black Widow</strong>
+                                <br>
+                                <strong>Answer the questions below. You have 30 seconds for each question.</strong>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
 
 
+        <progress class="progress is-success" value="60" max="100">60%</progress>
 
-
-
-
+        <div  id="trivia">
+            
 
 
 
 
-        <script>
-            let dropdown = document.querySelector('.dropdown');
-            dropdown.addEventListener('click', function (event) {
-                event.stopPropagation();
-                dropdown.classList.toggle('is-active');
-            });
-        </script>
+
+        </div>
+
+
+    </div>
 
 
 

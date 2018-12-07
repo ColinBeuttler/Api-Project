@@ -1,56 +1,92 @@
-.main-container {
-    background-image: url('http://2.bp.blogspot.com/-aVdB996ZL9U/VT3vxu60LGI/AAAAAAAAFZ0/lrFYb_37GlI/s1600/Avengers-Age-of-Ultron-2015-Movie-Poster.jpg');
-    /* background-position: relative; */
-    background-repeat: no-repeat;
-    /* background-attachment: relative; */
-    
-    background-color: white; 
-    height: 100%;
-    background-size: cover;
-    
-  
-}
-
 html, body {
     height: 100%;
 }
 
-.box {
-    position: relative;
-    text-align: center;
-    background-color: rgb(114, 114, 114);
-    opacity: 0.9;
-    font-size: 125%;
-    top: 45%;
-    left: 25%;
+.main-container {
+    background-image: url('http://2.bp.blogspot.com/-aVdB996ZL9U/VT3vxu60LGI/AAAAAAAAFZ0/lrFYb_37GlI/s1600/Avengers-Age-of-Ultron-2015-Movie-Poster.jpg');
+    background-position: relative;
     
-    padding: 0;
-    width: 54%;
-    
+    background-attachment: relative;
+    background-color: white; 
+    height: 100%;
+    background-size: cover;
 }
 
-.dropdown {
+.field {
     position: fixed;
     margin: 10px;
     top: 0;
     left: 0;
-    
 }
 
-.userInput {
+/* Thanos with message on the first page */
+.box-1 {
+    position: relative;
+    text-align: center;
+    background-color: rgb(231, 231, 231);
+    opacity: 0.85;
+    font-size: 150%;
+    color: rgb(0, 0, 0);
+    margin: 1%;
+    width: 89.5%;
+    padding: 15px 15px 15px;
+}
+
+/* star-lord with message */
+.box-2 {
     position: fixed;
-    top: 50%;
-    left: 42%;
+    position: relative;
+    background-color: rgb(231, 231, 231);
+    opacity: 0.82;
+    font-size: 130%;
+    color: rgb(0, 0, 0);
+    margin: 1%;
+    width: 100%;
+    padding: 15px 10px 20px;
+}
+
+/* star-lord usuername and submit button */
+.userInput {
+    margin: 0;
 
 }
 
 .submit-button {
+    padding: 10px 0px 0px 0px;
+
+}
+
+
+/* black widow with message */
+.box-3 {
     position: fixed;
-    top: 50%;
-    left: 55.1%;
-
-}
-
-.quiz-container {
     position: relative;
+    background-color: rgb(231, 231, 231);
+    opacity: 0.82;
+    font-size: 130%;
+    color: rgb(0, 0, 0);
+    margin: 1%;
+    width: 89%;
+    padding: 15px 10px 5px;
 }
+
+/* Groot with message on the last page */
+.box-4 {
+    position: relative;
+    text-align: center;
+    background-color: rgb(231, 231, 231);
+    opacity: 0.82;
+    font-size: 150%;
+    color: rgb(0, 0, 0);
+    margin: 1%;
+    width: 98%;
+    padding: 15px 15px 15px;
+}
+
+
+progress {
+    position: relative;
+    top: 25%;
+    width: 50%;
+}
+
