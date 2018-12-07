@@ -5,29 +5,170 @@ $(document).ready(function () {
     var timerNumber = 30;
     timer; //used for Set Interval
 
-    //Array of questions and 3 choices
-    var questions = [
+
+    //Array of 5 Marvel Characters with 5 questions and 3 choices
+
+    var SpiderMan = [
         {
+            name: "Spider-Man",
             question: "Q1?",
             answers: ["A", "B", "C"],
             correctAnswer: "A"
         },
         {
+            name: "Spider-Man",
             question: "Q2?",
             answers: ["A", "B", "C"],
             correctAnswer: "B"
         },
         {
+            name: "Spider-Man",
             question: "Q3?",
             answers: ["A", "B", "C"],
             correctAnswer: "C"
         },
         {
+            name: "Spider-Man",
             question: "Q4?",
             answers: ["A", "B", "C"],
             correctAnswer: "A"
         },
         {
+            name: "Spider-Man",
+            question: "Q5?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "C"
+        }
+    ];
+
+    var IronMan = [
+        {
+            name: "IronMan",
+            question: "Q1?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "A"
+        },
+        {
+            name: "IronMan",
+            question: "Q2?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "B"
+        },
+        {
+            name: "IronMan",
+            question: "Q3?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "C"
+        },
+        {
+            name: "IronMan",
+            question: "Q4?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "A"
+        },
+        {
+            name: "IronMan",
+            question: "Q5?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "C"
+        }
+    ];
+
+    var Avengers = [
+        {
+            name: "Avengers",
+            question: "Q1?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "A"
+        },
+        {
+            name: "Avengers",
+            question: "Q2?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "B"
+        },
+        {
+            name: "Avengers",
+            question: "Q3?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "C"
+        },
+        {
+            name: "Avengers",
+            question: "Q4?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "A"
+        },
+        {
+            name: "Avengers",
+            question: "Q5?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "C"
+        }
+    ];
+
+    var Thor = [
+        {
+            name: "Thor",
+            question: "Q1?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "A"
+        },
+
+        {
+            name: "Thor",
+            question: "Q2?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "B"
+        },
+
+        {
+            name: "Thor",
+            question: "Q3?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "C"
+        },
+        {
+            name: "Thor",
+            question: "Q4?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "A"
+        },
+        {
+            name: "Thor",
+            question: "Q5?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "C"
+        }
+    ];
+
+    var CaptainAmerica = [
+        {
+            name: "CaptainAmerica",
+            question: "Q1?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "A"
+        },
+        {
+            name: "CaptainAmerica",
+            question: "Q2?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "B"
+        },
+        {
+            name: "CaptainAmerica",
+            question: "Q3?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "C"
+        },
+        {
+            name: "CaptainAmerica",
+            question: "Q4?",
+            answers: ["A", "B", "C"],
+            correctAnswer: "A"
+        },
+        {
+            name: "CaptainAmerica",
             question: "Q5?",
             answers: ["A", "B", "C"],
             correctAnswer: "C"
@@ -135,20 +276,20 @@ $(document).ready(function () {
                 }
             }
         },
-        
+
         GetUsername() {
             //function to get the User Name and save it for ScoreboardDisplay to display at end of game
             console.log("Call GetUsername" + userName);
         },
 
-        ScoreboardDisplay(userName,score) {
+        ScoreboardDisplay(userName, score) {
             //Pass UserName strong and score (= rightAnswers) to store in persistent database and display
-            console.log ("Call ScoreboardDisplay");
+            console.log("Call ScoreboardDisplay");
         }
-    
+
     };
 
-// MAIN CODE-Start on Click of start button, or     check for answer to questions
+    // MAIN CODE-Start on Click of start button, or     check for answer to questions
 
     $(document).on("click", ".answer-button", function (e) {
         game.clicked(e);
@@ -159,5 +300,5 @@ $(document).ready(function () {
         console.log("START GAME");
         game.getnextQuestion();
     });
-    
+
 }); 
