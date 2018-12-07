@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html, body {
     height: 100%;
 }
@@ -59,10 +60,45 @@ html, body {
 }
 
 .field-2 {
+=======
+.main-container {
+    background-image: url('http://2.bp.blogspot.com/-aVdB996ZL9U/VT3vxu60LGI/AAAAAAAAFZ0/lrFYb_37GlI/s1600/Avengers-Age-of-Ultron-2015-Movie-Poster.jpg');
+    /* background-position: relative; */
+    background-repeat: no-repeat;
+    /* background-attachment: relative; */
+    
+    background-color: white; 
+    height: 100%;
+    background-size: cover;
+    
+  
+}
+
+html, body {
+    height: 100%;
+}
+
+.box {
+    position: relative;
+    text-align: center;
+    background-color: rgb(114, 114, 114);
+    opacity: 0.9;
+    font-size: 125%;
+    top: 45%;
+    left: 25%;
+    
+    padding: 0;
+    width: 54%;
+    
+}
+
+.dropdown {
+>>>>>>> 660d9a1dbca9b6ccadf303609ebd88935cf1a783
     position: fixed;
     margin: 10px;
     top: 0;
     left: 0;
+<<<<<<< HEAD
 
 }
 
@@ -94,10 +130,20 @@ html, body {
 .userInput {
     margin: 0;
     
+=======
+    
+}
+
+.userInput {
+    position: fixed;
+    top: 50%;
+    left: 42%;
+>>>>>>> 660d9a1dbca9b6ccadf303609ebd88935cf1a783
 
 }
 
 .submit-button {
+<<<<<<< HEAD
     padding: 10px 0px 0px 0px;
 
 }
@@ -122,6 +168,14 @@ html, body {
 
 
 
+=======
+    position: fixed;
+    top: 50%;
+    left: 55.1%;
+
+}
+
+>>>>>>> 660d9a1dbca9b6ccadf303609ebd88935cf1a783
 .quiz-container {
     position: relative;
 }
