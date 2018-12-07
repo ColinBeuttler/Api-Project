@@ -181,8 +181,8 @@ $(document).ready(function () {
         timerCnt: timerNumber, //set to 30 
         rightAnswers: 0,
         wrongAnswers: 0,
-        userName = "TEST",
-        score = 0,
+        userName: "TEST",
+        score: 0,
 
         countdown: function () {
             game.timerCnt--;
@@ -295,10 +295,42 @@ $(document).ready(function () {
         game.clicked(e);
     });
 
-    $(document).on("click", "#start", function () {
+    $(document).on("click", "#thor", function () {
         $("#timer-body").prepend("<h3>Time Remaining: <span id='counter-number'>30</span> Seconds</h3>");
-        console.log("START GAME");
+        console.log("Thor Questions");
+        questions = Thor;
+        game.getnextQuestion();
+    });   
+    
+    $(document).on("click", "#spiderman", function () {
+        $("#timer-body").prepend("<h3>Time Remaining: <span id='counter-number'>30</span> Seconds</h3>");
+        console.log("Spider Man Questions");
+        questions = SpiderMan;
         game.getnextQuestion();
     });
+    $(document).on("click", "#ironman", function () {
+        $("#timer-body").prepend("<h3>Time Remaining: <span id='counter-number'>30</span> Seconds</h3>");
+        console.log("Iron Man Questions");
+        questions = IronMan;
+        game.getnextQuestion();
+    });
+
+    $(document).on("click", "#avengers", function () {
+        $("#timer-body").prepend("<h3>Time Remaining: <span id='counter-number'>30</span> Seconds</h3>");
+        console.log("Avenger Questions");
+        questions = Avengers;
+        game.getnextQuestion();
+    });
+
+    $(document).on("click", "#captainamerica", function () {
+        $("#timer-body").prepend("<h3>Time Remaining: <span id='counter-number'>30</span> Seconds</h3>");
+        console.log("Captain America Questions");
+        questions = CaptainAmerica;
+        game.getnextQuestion();
+    });
+
+
+
+
 
 }); 
