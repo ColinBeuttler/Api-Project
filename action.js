@@ -3,39 +3,40 @@ $(document).ready(function () {
     // Global variables
     var card = $("#trivia");
     var timerNumber = 30;
-    timer; //used for Set Interval
+    var timer; //used for Set Interval
+    var character = "";
+    var questions = 5;
 
-
-    //Array of 5 Marvel Characters with 5 questions and 3 choices
+    //Array of 5 Marvel Character Objects with 5 questions and 3 choices
 
     var SpiderMan = [
         {
             name: "Spider-Man",
-            question: "Q1?",
+            question: "Q1? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "A"
         },
         {
             name: "Spider-Man",
-            question: "Q2?",
+            question: "Q2? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "B"
         },
         {
             name: "Spider-Man",
-            question: "Q3?",
+            question: "Q3? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "C"
         },
         {
             name: "Spider-Man",
-            question: "Q4?",
+            question: "Q4? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "A"
         },
         {
             name: "Spider-Man",
-            question: "Q5?",
+            question: "Q5? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "C"
         }
@@ -44,31 +45,31 @@ $(document).ready(function () {
     var IronMan = [
         {
             name: "IronMan",
-            question: "Q1?",
+            question: "Q1? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "A"
         },
         {
             name: "IronMan",
-            question: "Q2?",
+            question: "Q2? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "B"
         },
         {
             name: "IronMan",
-            question: "Q3?",
+            question: "Q3? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "C"
         },
         {
             name: "IronMan",
-            question: "Q4?",
+            question: "Q4? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "A"
         },
         {
             name: "IronMan",
-            question: "Q5?",
+            question: "Q5? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "C"
         }
@@ -77,31 +78,31 @@ $(document).ready(function () {
     var Avengers = [
         {
             name: "Avengers",
-            question: "Q1?",
-            answers: ["A", "B", "C"],
-            correctAnswer: "A"
+            question: "What is the title of the new Avengers 4 movie coming May 3, 2019? <br>",
+            answers: ["Avengers Infinity War Part II", "Avengers: Hawkeye Returns", "Avengers: Endgame"],
+            correctAnswer: "Avengers: Endgame"
         },
         {
             name: "Avengers",
-            question: "Q2?",
+            question: "Q2? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "B"
         },
         {
             name: "Avengers",
-            question: "Q3?",
+            question: "Q3? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "C"
         },
         {
             name: "Avengers",
-            question: "Q4?",
+            question: "Q4? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "A"
         },
         {
             name: "Avengers",
-            question: "Q5?",
+            question: "Q5? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "C"
         }
@@ -110,21 +111,21 @@ $(document).ready(function () {
     var Thor = [
         {
             name: "Thor",
-            question: "Q1?",
+            question: "Q1? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "A"
         },
 
         {
             name: "Thor",
-            question: "Q2?",
+            question: "Q2? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "B"
         },
 
         {
             name: "Thor",
-            question: "Q3?",
+            question: "Q3? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "C"
         },
@@ -136,7 +137,7 @@ $(document).ready(function () {
         },
         {
             name: "Thor",
-            question: "Q5?",
+            question: "Q5? <br>",
             answers: ["A", "B", "C"],
             correctAnswer: "C"
         }
@@ -145,38 +146,38 @@ $(document).ready(function () {
     var CaptainAmerica = [
         {
             name: "CaptainAmerica",
-            question: "Q1?",
-            answers: ["A", "B", "C"],
-            correctAnswer: "A"
+            question: "What is Captain America's Shield made of? <br>",
+            answers: ["Titanium", "Vibranium", "Aluminum"],
+            correctAnswer: "Vibranium"
         },
         {
             name: "CaptainAmerica",
-            question: "Q2?",
-            answers: ["A", "B", "C"],
-            correctAnswer: "B"
+            question: "What is the Captain's real name? <br>",
+            answers: ["Mike Smith", "Chris Pratt", "Steve Rogers"],
+            correctAnswer: "Steve Rogers"
         },
         {
             name: "CaptainAmerica",
-            question: "Q3?",
-            answers: ["A", "B", "C"],
-            correctAnswer: "C"
+            question: "What does Captain America do to hit something (or someone) far away? <br>",
+            answers: ["Throws his shield", "Uses his boomarang", "Flies there"],
+            correctAnswer: "Throws his shield"
         },
         {
             name: "CaptainAmerica",
-            question: "Q4?",
-            answers: ["A", "B", "C"],
-            correctAnswer: "A"
+            question: "Who is Captain America feuding with in Captain America: Civil War? <br>",
+            answers: ["The Hulk", "Thor", "Tony Stark (Iron Man)"],
+            correctAnswer: "Tony Stark (Iron Man)"
         },
         {
             name: "CaptainAmerica",
-            question: "Q5?",
-            answers: ["A", "B", "C"],
-            correctAnswer: "C"
+            question: "What gives Captain America his super-human strength and athleticism? <br>",
+            answers: ["Blood transfusion", "Super soldier serum", "Genes from his father <br>"],
+            correctAnswer: "Super soldier serum"
         }
     ];
 
     var game = {
-        questions: 0,
+        character: Thor,
         questionNum: 0,
         timerCnt: timerNumber, //set to 30 
         rightAnswers: 0,
@@ -192,25 +193,30 @@ $(document).ready(function () {
             }
         },
 
-        getnextQuestion: function () {
+        getnextQuestion: function (c) {
+            // passing in the character object pointer: c
+            // Update game.character object
+            game.character = c;
+            console.log("character value in getextQuestion:" + game.character);
 
             // decrement timer by 1second
             timer = setInterval(game.countdown, 1000);
 
             //get next question from array to display via HTML element
-            card.html("<h2>" + questions[this.questionNum].question + "</h2>");
+            card.html(c[game.questionNum].question);
 
             //get answers from questions array to display via HTML element
-            for (var i = 0; i < questions[this.questionNum].answers.length; i++) {
-                card.append("<button class='answer-button' id='button' data-name='" + questions[this.questionNum].answers[i] + "'>" + questions[this.questionNum].answers[i] + "</button>");
+            for (var i = 0; i < c[game.questionNum].answers.length; i++) {
+                card.append("<button class='answer-button' id='button' data-name='" + c[game.questionNum].answers[i] + "'>" + c[game.questionNum].answers[i] + "</button>");
             }
         },
 
         updateQuestion: function () { //increment question and timer counters
-            game.timerCnt = timerNumber; //reset back to 30
+            game.timerCnt = timerNumber; //reset back to 30 seconds toanswer
             $("#counter-number").text(game.timerCnt)
+
             game.questionNum++; //next question number
-            game.getnextQuestion();
+            game.getnextQuestion(character);
         },
 
         timesUp: function () {
@@ -218,11 +224,11 @@ $(document).ready(function () {
             clearInterval(timer);
             $("#counter-number").html(game.timerCnt);
 
-            card.html("<h2>Time is up!</h2>");
-            card.append("<h3>The Correct Answer was: " + questions[this.questionNum].correctAnswer);
+            card.html("Time is up!");
+            card.append("The Correct Answer was: " + character[game.questionNum].correctAnswer);
 
             //check if max questions (5) reached and if so display game results   
-            if (game.questionNum === questions.length - 1) {
+            if (game.questionNum === questions - 1) {
                 //wait 3 seconds and print game results
                 setTimeout(game.GameOver, 3 * 1000);
             }
@@ -230,30 +236,36 @@ $(document).ready(function () {
                 //get next question
                 setTimeout(game.updateQuestion, 3 * 1000);
             }
-
         },
 
         GameOver: function () {
 
             clearInterval(timer);
+            game.questionNum = 0; //reset question # counter back to 0
 
-            card.html("<h3>Game over. Your results:</h3>");
+            //clear timer area of screen
+            $("#timer-body").empty();          
 
-            $("#counter-number").text(game.timerCnt);
-            card.append("<h3>Correct Answers: " + game.rightAnswers + "</h3>");
-            card.append("<h3>Incorrect Answers: " + game.wrongAnswers + "</h3>");
+            card.html("Game over. Your results: <br>");
+
+            //$("#counter-number").text(game.timerCnt);
+
+            card.append("Correct Answers: " + game.rightAnswers + "<br>");
+            card.append("Incorrect Answers: " + game.wrongAnswers + "<br>" );
             // Call ScoreboardDisplay(UserName, game.rightAnswers); 
+            // reset game
         },
 
         clicked: function (e) { //Check for right answer
             clearInterval(timer);
 
-            if ($(e.target).attr("data-name") === questions[this.questionNum].correctAnswer) {
+            if ($(e.target).attr("data-name") === character[game.questionNum].correctAnswer) {
                 clearInterval(timer);
-                game.rightAnswers++; //increase right answer count
-                card.html("<h2>Correct!</h2>");
 
-                if (game.questionNum === questions.length - 1) {
+                game.rightAnswers++; //increase right answer count
+                card.html("Correct! <br>");
+
+                if (game.questionNum === questions - 1) {
                     setTimeout(game.GameOver, 3 * 1000);
                 }
                 else {
@@ -265,10 +277,10 @@ $(document).ready(function () {
                 clearInterval(timer);
                 game.wrongAnswers++;
 
-                card.html("<h2>Incorrect Answer!</h2>");
-                card.append("<h3>The Correct Answer was: " + questions[game.questionNum].correctAnswer + "</h3>");
+                card.html("Incorrect Answer! <br>");
+                card.append("The Correct Answer was: " + character[game.questionNum].correctAnswer + "<br>");
 
-                if (game.questionNum === questions.length - 1) {
+                if (game.questionNum === questions - 1) {
                     setTimeout(game.GameOver, 3 * 1000);
                 }
                 else {
@@ -279,59 +291,65 @@ $(document).ready(function () {
 
         GetUsername() {
             //function to get the User Name and save it for ScoreboardDisplay to display at end of game
-            console.log("Call GetUsername" + userName);
+            console.log("Call GetUsername" + game.userName);
         },
 
-        ScoreboardDisplay(userName, score) {
-            //Pass UserName strong and score (= rightAnswers) to store in persistent database and display
-            console.log("Call ScoreboardDisplay");
+        ScoreboardDisplay() {
+            //Pass UserName  and score (= rightAnswers) to store in persistent database and display
+            console.log("Call ScoreboardDisplay" + game.rightAnswers);
         }
 
     };
 
-    // MAIN CODE-Start on Click of start button, or     check for answer to questions
+    // MAIN CODE-Start on Click of character button, or check for answer to questions
+
+    console.log("start");
 
     $(document).on("click", ".answer-button", function (e) {
         game.clicked(e);
     });
 
     $(document).on("click", "#thor", function () {
-        $("#timer-body").prepend("<h3>Time Remaining: <span id='counter-number'>30</span> Seconds</h3>");
         console.log("Thor Questions");
-        game.questions = Thor;
-        game.getnextQuestion();
-    });   
-    
+
+        $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
+
+        character = Thor;
+        game.getnextQuestion(character);
+    });
+
     $(document).on("click", "#spiderman", function () {
-        $("#timer-body").prepend("<h3>Time Remaining: <span id='counter-number'>30</span> Seconds</h3>");
         console.log("Spider Man Questions");
-        game.questions = SpiderMan;
-        game.getnextQuestion();
+
+        $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
+
+        character = SpiderMan;
+        console.log("Character=" + character);
+        game.getnextQuestion(character);
     });
 
     $(document).on("click", "#ironman", function () {
-        $("#timer-body").prepend("<h3>Time Remaining: <span id='counter-number'>30</span> Seconds</h3>");
+        $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
         console.log("Iron Man Questions");
-        game.questions = IronMan;
-        game.getnextQuestion();
+
+        character = IronMan;
+        game.getnextQuestion(character);
     });
 
     $(document).on("click", "#avengers", function () {
-        $("#timer-body").prepend("<h3>Time Remaining: <span id='counter-number'>30</span> Seconds</h3>");
+        $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
         console.log("Avenger Questions");
-        game.questions = Avengers;
-        game.getnextQuestion();
+
+        character = Avengers;
+        game.getnextQuestion(character);
     });
 
     $(document).on("click", "#captainamerica", function () {
-        $("#timer-body").prepend("<h3>Time Remaining: <span id='counter-number'>30</span> Seconds</h3>");
+        $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
         console.log("Captain America Questions");
-        game.questions = CaptainAmerica;
-        game.getnextQuestion();
+
+        character = CaptainAmerica;
+        game.getnextQuestion(character);
     });
 
-
-
-
-
-}); 
+});
