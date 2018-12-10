@@ -45,16 +45,22 @@ var config = {
             scoreBoardTemp.push(scoreInstance); // Pushes above array onto a separate one for a 2D array
             })
             scoreOrderedList = scoreBoardTemp.reverse(); // Preserves current sorted score array without pushing on duplicates
-            scoreOrderedList.length = 10; // Cut out extra values after the 12th score (scoreboard is top 10)
+            if (scoreOrderedList.length > 10) {
+                scoreOrderedList.length = 10; // Cut out extra values after the 12th score (scoreboard is top 10)
+            }
         }, function(error) {
             console.log("Error code: " + error.code);
         });
     
-    // This function does not need to be used and can be easily replaced, but is for the convenience of printing the score array.
     // Replace with preferred function
-    function listScores() {
+    // Allows selection of element on page to append to
+    // Application of css classes like Bulma and Bootstrap can be done by adding them to scoreDiv
+    function listScores(location) {
+        var scoreDiv = $("<div id='scoreboard'>");
+        $("#scoreboard").remove(); // Remove leftover score divs from last game
+        $(location).append(scoreDiv);
         for (i=0; i<scoreOrderedList.length; i++) {
-            $("#scoreBoard").append('<h2>' + 'Name: ' + scoreOrderedList[i][0] + '\t' + 'Score: ' + scoreOrderedList[i][1]);
+            $(scoreDiv).append('<h2 style="z-index: 3" class="has-text-white">' + 'Name: ' + scoreOrderedList[i][0] + '\t' + 'Score: ' + scoreOrderedList[i][1]);
         }
     };
     
@@ -73,7 +79,6 @@ var config = {
             name: username,
             score: score
         })
-        userSet = true; // Confirm that the user has a Firebase Score
     };
     
     
@@ -326,43 +331,46 @@ $(document).ready(function () {
             //clear timer area of screen
             $("#timer-body").empty();
             
-            // Create a form for entering username
-            var userNameSubmitDiv = $("<div>");
-            userNameSubmitDiv.attr("id", "userName");
-            var userNameSubmitForm = $("<form>");
-            userNameSubmitForm.attr("id", "userForm");
-            $("body").append(userNameSubmitDiv);
-            $("#userName").append(userNameSubmitForm);
-            $("<input type='text' id='typeName'>").appendTo("#userForm");
-            $("<input type='submit' value='Enter Username' id='submitUser'>").appendTo("#userForm");
+            // Create a form for entering username (if it isn't already logged)
+            if (scoreData === null) {
+                var userNameSubmitDiv = $("<div>");
+                userNameSubmitDiv.attr("id", "userName");
+                var userNameSubmitForm = $("<form>");
+                userNameSubmitForm.attr("id", "userForm");
+                $("body").append(userNameSubmitDiv);
+                $("#userName").append(userNameSubmitForm);
+                $("<input type='text' id='typeName'>").appendTo("#userForm");
+                $("<input type='submit' value='Enter Username' id='submitUser'>").appendTo("#userForm");
 
-            // Only finish the rest of the game over state when the username is submitted
-            $("#submitUser").click(function(event) {
-                event.preventDefault();
-                game.userName = $("#typeName").val().trim();
-                // Store score to Firebase Database (and get username if needed)
-                if (scoreData === null) {
+                // Only finish the rest of the game over state when the username is submitted (if needed)
+                $("#submitUser").click(function(event) {
+                    event.preventDefault();
+                    game.userName = $("#typeName").val().trim();
+
+                    // Store score to Firebase Database (and get username if needed)
                     storeInitialScore(game.userName, game.rightAnswers);
+                    $("#userName").empty(); // Delete the form elements so that the event cannot be reused on accident
+                    })
                 }
-                else {
-                    storeNewScore(game.rightAnswers);
-                }
-                // Delete the form elements so that the event cannot be reused until next gameover
-                $("#userName").empty();
 
-                card.html("Game over. Your results: <br>");
+            else {
+                // Store score automatically without prompting user again
+                storeNewScore(game.rightAnswers);
+            }
 
-                //$("#counter-number").text(game.timerCnt);
+            card.html("Game over. Your results: <br>");
 
-                card.append("Correct Answers: " + game.rightAnswers + "<br>");
-                card.append("Incorrect Answers: " + game.wrongAnswers + "<br>" );
-                // Call ScoreboardDisplay(UserName, game.rightAnswers);
-                
-                listScores();
+            //$("#counter-number").text(game.timerCnt);
 
-                // reset game
-            })
-        },
+            card.append("Correct Answers: " + game.rightAnswers + "<br>");
+            card.append("Incorrect Answers: " + game.wrongAnswers + "<br>" );
+            // Call ScoreboardDisplay(UserName, game.rightAnswers);
+            listScores(".field"); // Input a string with the element id or class to append to
+
+            // reset game (reinitialize right and wrong answers)
+            game.rightAnswers = 0;
+            game.wrongAnswers = 0;
+            },
 
         clicked: function (e) { //Check for right answer
             clearInterval(timer);
