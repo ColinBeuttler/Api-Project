@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 html, body {
     height: 100%;
 }
@@ -32,76 +31,33 @@ html, body {
     width: 89.5%;
     padding: 15px 15px 15px;
 }
-/* Groot with message on the last page */
+
+/* star-lord with message */
 .box-2 {
+    position: fixed;
     position: relative;
-    text-align: center;
     background-color: rgb(231, 231, 231);
     opacity: 0.82;
-    font-size: 150%;
+    font-size: 130%;
     color: rgb(0, 0, 0);
     margin: 1%;
-    width: 98%;
-    padding: 15px 15px 15px;
+    width: 100%;
+    padding: 15px 10px 20px;
 }
-/* above complete. */
-/* --------------------------------------------- */
 
-
-
-.container-2 {
-    background-image: url('http://2.bp.blogspot.com/-aVdB996ZL9U/VT3vxu60LGI/AAAAAAAAFZ0/lrFYb_37GlI/s1600/Avengers-Age-of-Ultron-2015-Movie-Poster.jpg');
-    background-position: relative;
-    background-attachment: relative;
-    background-color: white; 
-    height: 100%;
-    background-size: cover;
+/* star-lord usuername and submit button */
+.userInput {
+    margin: 0;
 
 }
 
-.field-2 {
-=======
-.main-container {
-    background-image: url('http://2.bp.blogspot.com/-aVdB996ZL9U/VT3vxu60LGI/AAAAAAAAFZ0/lrFYb_37GlI/s1600/Avengers-Age-of-Ultron-2015-Movie-Poster.jpg');
-    /* background-position: relative; */
-    background-repeat: no-repeat;
-    /* background-attachment: relative; */
-    
-    background-color: white; 
-    height: 100%;
-    background-size: cover;
-    
-  
-}
-
-html, body {
-    height: 100%;
-}
-
-.box {
-    position: relative;
-    text-align: center;
-    background-color: rgb(114, 114, 114);
-    opacity: 0.9;
-    font-size: 125%;
-    top: 45%;
-    left: 25%;
-    
-    padding: 0;
-    width: 54%;
-    
-}
-
-.dropdown {
->>>>>>> 660d9a1dbca9b6ccadf303609ebd88935cf1a783
-    position: fixed;
-    margin: 10px;
-    top: 0;
-    left: 0;
-<<<<<<< HEAD
+.submit-button {
+    padding: 10px 0px 0px 0px;
 
 }
 
+
+/* black widow with message */
 .box-3 {
     position: fixed;
     position: relative;
@@ -114,38 +70,24 @@ html, body {
     padding: 15px 10px 5px;
 }
 
-
+/* Groot with message on the last page */
 .box-4 {
-    position: fixed;
     position: relative;
+    text-align: center;
     background-color: rgb(231, 231, 231);
     opacity: 0.82;
-    font-size: 130%;
+    font-size: 150%;
     color: rgb(0, 0, 0);
     margin: 1%;
-    width: 100%;
-    padding: 15px 10px 20px;
+    width: 98%;
+    padding: 15px 15px 15px;
 }
 
-.userInput {
-    margin: 0;
-    
-=======
-    
-}
 
-.userInput {
-    position: fixed;
-    top: 50%;
-    left: 42%;
->>>>>>> 660d9a1dbca9b6ccadf303609ebd88935cf1a783
-
-}
-
-.submit-button {
-<<<<<<< HEAD
-    padding: 10px 0px 0px 0px;
-
+progress {
+    position: relative;
+    top: 25%;
+    width: 50%;
 }
 
 
@@ -168,14 +110,13 @@ html, body {
 
 
 
-=======
-    position: fixed;
-    top: 50%;
-    left: 55.1%;
 
-}
 
->>>>>>> 660d9a1dbca9b6ccadf303609ebd88935cf1a783
+
+
+/* 
+
 .quiz-container {
     position: relative;
-}
+} */
+

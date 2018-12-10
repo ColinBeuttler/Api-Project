@@ -6,6 +6,7 @@ $(document).ready(function () {
     var timer; //used for Set Interval
     var character = "";
     var questions = 5;
+    var firstcharClick = false;
 
     //Array of 5 Marvel Character Objects with 5 questions and 3 choices
 
@@ -177,7 +178,7 @@ $(document).ready(function () {
     ];
 
     var game = {
-        character: Thor,
+        character: "",
         questionNum: 0,
         timerCnt: timerNumber, //set to 30 
         rightAnswers: 0,
@@ -197,7 +198,6 @@ $(document).ready(function () {
             // passing in the character object pointer: c
             // Update game.character object
             game.character = c;
-            console.log("character value in getextQuestion:" + game.character);
 
             // decrement timer by 1second
             timer = setInterval(game.countdown, 1000);
@@ -212,10 +212,10 @@ $(document).ready(function () {
         },
 
         updateQuestion: function () { //increment question and timer counters
-            game.timerCnt = timerNumber; //reset back to 30 seconds toanswer
+            game.timerCnt = timerNumber; //reset back to 30 seconds to answer
             $("#counter-number").text(game.timerCnt)
 
-            game.questionNum++; //next question number
+            game.questionNum++; //increment to next question number
             game.getnextQuestion(character);
         },
 
@@ -244,17 +244,20 @@ $(document).ready(function () {
             game.questionNum = 0; //reset question # counter back to 0
 
             //clear timer area of screen
-            $("#timer-body").empty();          
+            $("#timer-body").empty();
 
             card.html("Game over. Your results: <br>");
 
             //$("#counter-number").text(game.timerCnt);
 
             card.append("Correct Answers: " + game.rightAnswers + "<br>");
-            card.append("Incorrect Answers: " + game.wrongAnswers + "<br>" );
+            card.append("Incorrect Answers: " + game.wrongAnswers + "<br>");
+
             // Call ScoreboardDisplay(UserName, game.rightAnswers); 
-            // reset game, character back to null
+
+            // reset game, character back to null & set 1st time character selected back to false
             character = "";
+            firstcharClick = false;
         },
 
         clicked: function (e) { //Check for right answer
@@ -299,45 +302,114 @@ $(document).ready(function () {
     });
 
     $(document).on("click", "#thor", function () {
+        if (character === "") {
 
-        $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
+            $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
 
-        character = Thor;
-        game.getnextQuestion(character);
+            character = Thor;
+
+            firstcharClick = true; //set the fact that you already clicked on a character
+
+            game.getnextQuestion(character);
+        }
+        else if (firstcharClick) {      //Check if already clicked on Thor, if not it's another character
+            if (character === Thor) {
+
+                $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
+
+                game.getnextQuestion(character);
+            }
+        }
+        // otherwise clicked on another character without game being over
     });
 
     $(document).on("click", "#spiderman", function () {
-        console.log("Spider Man Questions");
+        if (character === "") {
 
-        $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
+            $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
 
-        character = SpiderMan;
-        console.log("Character=" + character);
-        game.getnextQuestion(character);
+            character = SpiderMan;
+
+            firstcharClick = true;
+
+            game.getnextQuestion(character);
+        }
+        else if (firstcharClick) {
+            //Check if already clicked on SpiderMan, if not it's another character
+            if (character === SpiderMan) {
+
+                $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
+
+                game.getnextQuestion(character);
+            }
+        }
     });
 
     $(document).on("click", "#ironman", function () {
-        $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
-        console.log("Iron Man Questions");
+        if (character === "") {
 
-        character = IronMan;
-        game.getnextQuestion(character);
+            $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
+
+            character = IronMan;
+
+            firstcharClick = true; //set the fact that you already clicked on a character
+
+            game.getnextQuestion(character);
+        }
+        else if (firstcharClick) {
+            //Check if already clicked on IronMan, if not it's another character
+            if (character === IronMan) {
+
+                $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
+
+                game.getnextQuestion(character);
+            }
+        }
     });
 
     $(document).on("click", "#avengers", function () {
-        $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
-        console.log("Avenger Questions");
+        if (character === "") {
 
-        character = Avengers;
-        game.getnextQuestion(character);
+            $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
+
+            character = Avengers;
+
+            firstcharClick = true; //set the fact that you already clicked on a character
+
+            game.getnextQuestion(character);
+        }
+        else if (firstcharClick) {
+            //Check if already clicked on IronMan, if not it's another character
+            if (character === Avengers) {
+
+                $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
+
+                game.getnextQuestion(character);
+            }
+        }
     });
 
     $(document).on("click", "#captainamerica", function () {
-        $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
-        console.log("Captain America Questions");
+        if (character === "") {
 
-        character = CaptainAmerica;
-        game.getnextQuestion(character);
+            $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
+
+            character = CaptainAmerica;
+
+            firstcharClick = true; //set the fact that you already clicked on a character
+
+            game.getnextQuestion(character);
+        }
+
+        else if (firstcharClick) {
+            //Check if already clicked on IronMan, if not it's another character
+            if (character === Avengers) {
+
+                $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
+
+                game.getnextQuestion(character);
+            }
+        }
     });
 
 });

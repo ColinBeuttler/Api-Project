@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>First Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="bulma.css">
@@ -19,9 +20,7 @@
 
     <div class="main-container">
 
-<<<<<<< HEAD
         <div class="field">
-
             <div class="box-1">
                 <article class="media">
                     <div class="media-left">
@@ -31,133 +30,33 @@
                         </figure>
                     </div>
                     <div class="media-content">
-                        <div class="content">
+                        <div class="content" id="timer-body">
+                        </div>
+                        <div id="trivia">
                             <p>
                                 <strong>Thanos</strong>
                                 <br>
                                 <strong>Click</strong> a Marvel character to answer trivia questions.
                             </p>
+
                         </div>
+
                     </div>
                 </article>
             </div>
 
-            <a href="bulma2.html"><button class="button is-danger is-rounded"><b>Spider Man</b></button></a>
-            <a href="bulma2.html"><button class="button is-primary is-rounded"><b>Iron Man</b></button></a>
-            <a href="bulma2.html"><button class="button is-link is-rounded"><b>Avengers</b></button></a>
-            <a href="bulma2.html"><button class="button is-info is-rounded"><b>Doctor Strange</b></button></a>
-            <a href="bulma2.html"><button class="button is-success is-rounded"><b>Captain America</b></button></a>
-
+            <a ><button class="button is-danger is-rounded" id="spiderman"><b>Spider Man</b></button></a>
+            <a><button class="button is-primary is-rounded" id="ironman" ><b>Iron Man</b></button></a>
+            <a><button class="button is-link is-rounded" id="avengers"><b>Avengers</b></button></a>
+            <a ><button class="button is-info is-rounded" id="thor"><b>Thor</b></button></a>
+            <a><button class="button is-success is-rounded" id="captainamerica"><b>Captain America</b></button></a>
 
         </div>
     </div>
+    
 
-
-
-
-
-
-
-
-    <!-- <nav class="dropdown">
-=======
-        <div class="box">
-            <article class="media">
-
-                <div class="media-content">
-                    <div class="content">
-                        <p>
-                            <b>Instructions</b>
-                            <br>
-                            <b>Click the "Choose Character" button to select a Marvel character to answer
-                                trivia questions about.</b>
-                        </p>
-                    </div>
-                </div>
-            </article>
-        </div>
-
-        <nav class="dropdown">
->>>>>>> 660d9a1dbca9b6ccadf303609ebd88935cf1a783
-            <div class="dropdown-trigger">
-                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                    <span><b>Choose Character</b></span>
-                    <span class="icon is-small">
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                </button>
-            </div>
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                <div class="dropdown-content">
-                    <a href="bulma2.html" class="dropdown-item">
-                        Spider-Man
-                    </a>
-<<<<<<< HEAD
-                    <a href="bulma2.html" class="dropdown-item">
-                        Avengers
-                    </a>
-                    <a href="bulma2.html" class="dropdown-item">
-=======
-                    <a class="dropdown-item">
-                        Avengers
-                    </a>
-                    <a href="bulma2.html" class="dropdown-item is-active">
->>>>>>> 660d9a1dbca9b6ccadf303609ebd88935cf1a783
-                        Iron Man
-                    </a>
-                    <a href="bulma2.html" class="dropdown-item">
-                        Dr. Strange
-                    </a>
-                    <a href="bulma2.html" class="dropdown-item">
-                        Captain America
-                    </a>
-                </div>
-            </div>
-<<<<<<< HEAD
-        </nav>  -->
-
-    <!-- <div class="userInput">
-=======
-        </nav>
-
-        <!-- <div class="userInput">
->>>>>>> 660d9a1dbca9b6ccadf303609ebd88935cf1a783
-            <input class="input" type="text" placeholder="Username">
-        </div>
-
-        <div class="submit-button">
-            <a class="button is-info">
-                Submit
-            </a>
-        </div> -->
-<<<<<<< HEAD
-
-=======
-    </div>
->>>>>>> 660d9a1dbca9b6ccadf303609ebd88935cf1a783
-
-
-
-    <!-- Script for the dropdown function -->
-<<<<<<< HEAD
-    <!-- <script>
-=======
-    <script>
->>>>>>> 660d9a1dbca9b6ccadf303609ebd88935cf1a783
-        let dropdown = document.querySelector('.dropdown');
-        dropdown.addEventListener('click', function (event) {
-            event.stopPropagation();
-            dropdown.classList.toggle('is-active');
-        });
-<<<<<<< HEAD
-    </script> -->
-
-
-    <script type="text/javascript" src="project.js"></script>
-=======
-    </script>
->>>>>>> 660d9a1dbca9b6ccadf303609ebd88935cf1a783
-
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+    <script src="java.js"></script>
 </body>
 
 </html>
