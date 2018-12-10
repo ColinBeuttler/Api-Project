@@ -51,6 +51,19 @@ html, body {
 
 }
 
+.field-2 {
+.main-container {
+    background-image: url('http://2.bp.blogspot.com/-aVdB996ZL9U/VT3vxu60LGI/AAAAAAAAFZ0/lrFYb_37GlI/s1600/Avengers-Age-of-Ultron-2015-Movie-Poster.jpg');
+    /* background-position: relative; */
+    background-repeat: no-repeat;
+    /* background-attachment: relative; */
+    
+    background-color: white; 
+    height: 100%;
+    background-size: cover;
+    
+  
+}
 .submit-button {
     padding: 10px 0px 0px 0px;
 

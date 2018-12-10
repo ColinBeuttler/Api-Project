@@ -350,6 +350,18 @@ $(document).ready(function () {
 
                     // Store score to Firebase Database (and get username if needed)
                     storeInitialScore(game.userName, game.rightAnswers);
+                    listScores(".field");
+
+                    card.html("Game over. Your results: <br>");
+
+                    //$("#counter-number").text(game.timerCnt);
+
+                    card.append("Correct Answers: " + game.rightAnswers + "<br>");
+                    card.append("Incorrect Answers: " + game.wrongAnswers + "<br>" );
+
+                    // Reset rightAnswers (after listing scores)
+                    game.rightAnswers = 0;
+                    game.wrongAnswers = 0;
                     $("#userName").empty(); // Delete the form elements so that the event cannot be reused on accident
                     })
                 }
@@ -357,20 +369,24 @@ $(document).ready(function () {
             else {
                 // Store score automatically without prompting user again
                 storeNewScore(game.rightAnswers);
+                listScores(".field");
+
+                card.html("Game over. Your results: <br>");
+
+                //$("#counter-number").text(game.timerCnt);
+
+                card.append("Correct Answers: " + game.rightAnswers + "<br>");
+                card.append("Incorrect Answers: " + game.wrongAnswers + "<br>" );
+                
+                // Reset rightAnswers (after listing scores)
+                game.rightAnswers = 0;
+                game.wrongAnswers = 0;
             }
 
-            card.html("Game over. Your results: <br>");
-
-            //$("#counter-number").text(game.timerCnt);
-
-            card.append("Correct Answers: " + game.rightAnswers + "<br>");
-            card.append("Incorrect Answers: " + game.wrongAnswers + "<br>" );
             // Call ScoreboardDisplay(UserName, game.rightAnswers);
-            listScores(".field"); // Input a string with the element id or class to append to
+    
 
-            // reset game (reinitialize right and wrong answers)
-            game.rightAnswers = 0;
-            game.wrongAnswers = 0;
+            // reset game
             character = "";
             firstcharClick = false;
             },
