@@ -253,7 +253,8 @@ $(document).ready(function () {
             card.append("Correct Answers: " + game.rightAnswers + "<br>");
             card.append("Incorrect Answers: " + game.wrongAnswers + "<br>" );
             // Call ScoreboardDisplay(UserName, game.rightAnswers); 
-            // reset game
+            // reset game, character back to null
+            character = "";
         },
 
         clicked: function (e) { //Check for right answer
@@ -289,28 +290,15 @@ $(document).ready(function () {
             }
         },
 
-        GetUsername() {
-            //function to get the User Name and save it for ScoreboardDisplay to display at end of game
-            console.log("Call GetUsername" + game.userName);
-        },
-
-        ScoreboardDisplay() {
-            //Pass UserName  and score (= rightAnswers) to store in persistent database and display
-            console.log("Call ScoreboardDisplay" + game.rightAnswers);
-        }
-
     };
 
     // MAIN CODE-Start on Click of character button, or check for answer to questions
-
-    console.log("start");
 
     $(document).on("click", ".answer-button", function (e) {
         game.clicked(e);
     });
 
     $(document).on("click", "#thor", function () {
-        console.log("Thor Questions");
 
         $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
 
