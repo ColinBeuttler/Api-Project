@@ -116,9 +116,9 @@ $(document).ready(function () {
         },
         {
             name: "Spider-Man",
-            question: "Q5? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "C"
+            question: "In what city does Spiderman live? <br>",
+            answers: ["Los Angeles", "Tokyo", "New York"],
+            correctAnswer: "New York"
         }
     ];
 
@@ -170,21 +170,21 @@ $(document).ready(function () {
         },
         {
             name: "Avengers",
-            question: "Q3? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "C"
+            question: "What is the name of the robot AI that Tony and Bruce create? <br>",
+            answers: ["Veronica", "Jarvis", "Ultron"],
+            correctAnswer: "Ultron"
         },
         {
             name: "Avengers",
-            question: "Q4? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "A"
+            question: "Who besides Thor can lift mjolnir? <br>",
+            answers: ["Vision", "Iron Man", "Captain America"],
+            correctAnswer: "Vision"
         },
         {
             name: "Avengers",
-            question: "Q5? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "C"
+            question: "Who wants to eliminate half of Earth? <br>",
+            answers: ["Ultron", "Loki", "Thanos"],
+            correctAnswer: "Thanos"
         }
     ];
 
