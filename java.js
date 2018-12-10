@@ -86,6 +86,7 @@ $(document).ready(function () {
     var timer; //used for Set Interval
     var character = "";
     var questions = 5;
+    var firstcharClick = false;
 
     //Array of 5 Marvel Character Objects with 5 questions and 3 choices
 
@@ -257,7 +258,7 @@ $(document).ready(function () {
     ];
 
     var game = {
-        character: Thor,
+        character: "",
         questionNum: 0,
         timerCnt: timerNumber, //set to 30 
         rightAnswers: 0,
