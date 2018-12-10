@@ -92,27 +92,27 @@ $(document).ready(function () {
     var SpiderMan = [
         {
             name: "Spider-Man",
-            question: "Q1? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "A"
+            question: "What is Spider Man's real name? <br>",
+            answers: ["Peter Parker", "Harry Osborne", "Steve Rogers"],
+            correctAnswer: "Peter Parker"
         },
         {
             name: "Spider-Man",
-            question: "Q2? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "B"
+            question: "What is Spider Man bitten by? <br>",
+            answers: ["pig", "Spider", "donkey"],
+            correctAnswer: "Spider"
         },
         {
             name: "Spider-Man",
-            question: "Q3? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "C"
+            question: "Which avenger does Spider Man see as a mentor? <br>",
+            answers: ["Hulk", "Captain America", "Iron Man"],
+            correctAnswer: "Iron Man"
         },
         {
             name: "Spider-Man",
-            question: "Q4? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "A"
+            question: "What is the name of the alien symbiote that attaches itsef to Spider Man? <br>",
+            answers: ["Venom", "Poison", "Vile"],
+            correctAnswer: "Venom"
         },
         {
             name: "Spider-Man",
@@ -125,33 +125,33 @@ $(document).ready(function () {
     var IronMan = [
         {
             name: "IronMan",
-            question: "Q1? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "A"
+            question: "What is Iron Man's real name? <br>",
+            answers: ["Tony Stark", "Peter Parker", "Scott Lange"],
+            correctAnswer: "Tony Stark"
         },
         {
             name: "IronMan",
-            question: "Q2? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "B"
+            question: "What is the name of Iron Man's company? <br>",
+            answers: ["Stark Tower", "Stark Industires", "Stark Incorperated"],
+            correctAnswer: "Stark Industires"
         },
         {
             name: "IronMan",
-            question: "Q3? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "C"
+            question: "The first Iron Man suit is born where? <br>",
+            answers: ["His home lab", "in Stark Tower", "a cave"],
+            correctAnswer: "a cave"
         },
         {
             name: "IronMan",
-            question: "Q4? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "A"
+            question: "Who is Iron Man's love interest? <br>",
+            answers: ["Pepper Potts", "Black Widow", "Scarlet Witch"],
+            correctAnswer: "Pepper Potts"
         },
         {
             name: "IronMan",
-            question: "Q5? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "C"
+            question: "What is the name of Iron Man AI that is eventaully turned into vision? <br>",
+            answers: ["Wednesday", "Veronica", "Jarvis"],
+            correctAnswer: "Jarvis"
         }
     ];
 
@@ -164,9 +164,9 @@ $(document).ready(function () {
         },
         {
             name: "Avengers",
-            question: "Q2? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "B"
+            question: "Which is not an avenger? <br>",
+            answers: ["Thor", "Ant Man", "Hulk"],
+            correctAnswer: "Ant Man"
         },
         {
             name: "Avengers",
@@ -191,35 +191,35 @@ $(document).ready(function () {
     var Thor = [
         {
             name: "Thor",
-            question: "Q1? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "A"
+            question: "Where is Thor from? <br>",
+            answers: ["Asgard", "Milwaukee", "Odenson"],
+            correctAnswer: "Asgard"
         },
 
         {
             name: "Thor",
-            question: "Q2? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "B"
+            question: "Who is Thor's brother? <br>",
+            answers: ["Lor", "Loki", "Oden"],
+            correctAnswer: "Loki"
         },
 
         {
             name: "Thor",
-            question: "Q3? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "C"
+            question: "Mjolnir, Thor's hammer is destroyed by whom? <br>",
+            answers: ["Loki", "Hulk", "Hela"],
+            correctAnswer: "Hela"
         },
         {
             name: "Thor",
-            question: "Q4?",
-            answers: ["A", "B", "C"],
-            correctAnswer: "A"
+            question: "What is the name of the weapon that replaces mjolnir?",
+            answers: ["Stormbringer", "ThunderShaker", "The sword of a thousand Truths"],
+            correctAnswer: "Stormbringer"
         },
         {
             name: "Thor",
-            question: "Q5? <br>",
-            answers: ["A", "B", "C"],
-            correctAnswer: "C"
+            question: "Who is Thor's father? <br>",
+            answers: ["an icegiant", "Oldeson", "Oden"],
+            correctAnswer: "Oden"
         }
     ];
 
