@@ -324,16 +324,44 @@ $(document).ready(function () {
             game.questionNum = 0; //reset question # counter back to 0
 
             //clear timer area of screen
-            $("#timer-body").empty();          
+            $("#timer-body").empty();
+            
+            // Create a form for entering username
+            var userNameSubmitDiv = $("<div>");
+            userNameSubmitDiv.attr("id", "userName");
+            var userNameSubmitForm = $("<form>");
+            userNameSubmitForm.attr("id", "userForm");
+            $("body").append(userNameSubmitDiv);
+            $("#userName").append(userNameSubmitForm);
+            $("<input type='text' id='typeName'>").appendTo("#userForm");
+            $("<input type='submit' value='Enter Username' id='submitUser'>").appendTo("#userForm");
 
-            card.html("Game over. Your results: <br>");
+            // Only finish the rest of the game over state when the username is submitted
+            $("#submitUser").click(function(event) {
+                event.preventDefault();
+                game.userName = $("#typeName").val().trim();
+                // Store score to Firebase Database (and get username if needed)
+                if (scoreData === null) {
+                    storeInitialScore(game.userName, game.rightAnswers);
+                }
+                else {
+                    storeNewScore(game.rightAnswers);
+                }
+                // Delete the form elements so that the event cannot be reused until next gameover
+                $("#userName").empty();
 
-            //$("#counter-number").text(game.timerCnt);
+                card.html("Game over. Your results: <br>");
 
-            card.append("Correct Answers: " + game.rightAnswers + "<br>");
-            card.append("Incorrect Answers: " + game.wrongAnswers + "<br>" );
-            // Call ScoreboardDisplay(UserName, game.rightAnswers); 
-            // reset game
+                //$("#counter-number").text(game.timerCnt);
+
+                card.append("Correct Answers: " + game.rightAnswers + "<br>");
+                card.append("Incorrect Answers: " + game.wrongAnswers + "<br>" );
+                // Call ScoreboardDisplay(UserName, game.rightAnswers);
+                
+                listScores();
+
+                // reset game
+            })
         },
 
         clicked: function (e) { //Check for right answer
