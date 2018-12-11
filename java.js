@@ -6,78 +6,83 @@ var config = {
     projectId: "project-1-marvelous",
     storageBucket: "project-1-marvelous.appspot.com",
     messagingSenderId: "946464641688"
-};
-firebase.initializeApp(config);
-authorize = firebase.auth(); // To authorize user
-database = firebase.database(); // To access database
-
-// Global Variables
-var userID; // For storing the user's ID
-var scoreData; // Global variable to store score data from Firebase in realtime
-var scoreOrderedList = []; // Contains the ordered list of scores and names
-
-// Sign in a user from the browser to allow read/write permissions (and log errors)
-authorize.signInAnonymously().catch(function (error) {
-    console.log("Error Code: " + error.code);
-});
-
-// Actions to do on sign-in
-firebase.auth().onAuthStateChanged(function (user) {
-    userID = user.uid;
-    // Get the state of the user's score at all times (but only after the userID has been obtained)
-    database.ref('Scores/' + userID).on('value', function (currentScoreData) {
-        console.log(currentScoreData.val());
-        scoreData = currentScoreData.val();
-    }, function (error) {
-        console.log("Error code: " + error.code);
-    })
-});
-
-// This function will pull the scores from the database and sort into an array on the client
-database.ref('Scores').orderByChild('score').on('value', function (scoreOrder) {
-    var scoreBoardTemp = []; // Use this instead of pushing directly to global
-    // Loops through the score object in order of the ascending score values of the children
-    scoreOrder.forEach(function (child) {
-        // console.log(child.val());
-        // console.log(child.val().name);
-        // console.log(child.val().score);
-        var scoreInstance = [child.val().name, child.val().score]; // Stores an array with both name and score
-        scoreBoardTemp.push(scoreInstance); // Pushes above array onto a separate one for a 2D array
-    })
-    scoreOrderedList = scoreBoardTemp.reverse(); // Preserves current sorted score array without pushing on duplicates
-    scoreOrderedList.length = 10; // Cut out extra values after the 12th score (scoreboard is top 10)
-}, function (error) {
-    console.log("Error code: " + error.code);
-});
-
-// This function does not need to be used and can be easily replaced, but is for the convenience of printing the score array.
-// Replace with preferred function
-function listScores() {
-    for (i = 0; i < scoreOrderedList.length; i++) {
-        $("#scoreBoard").append('<h2>' + 'Name: ' + scoreOrderedList[i][0] + '\t' + 'Score: ' + scoreOrderedList[i][1]);
-    }
-};
-
-// Function for updating the user's score data without using overwrites
-function storeNewScore(score) {
-    if (scoreData.score < score) {
-        database.ref("Scores/" + userID).update({
+    };
+    firebase.initializeApp(config);
+    authorize = firebase.auth(); // To authorize user
+    database = firebase.database(); // To access database
+    
+    // Global Variables
+    var userID; // For storing the user's ID
+    var scoreData; // Global variable to store score data from Firebase in realtime
+    var scoreOrderedList = []; // Contains the ordered list of scores and names
+    
+    // Sign in a user from the browser to allow read/write permissions (and log errors)
+    authorize.signInAnonymously().catch(function(error) {
+        console.log("Error Code: " + error.code);
+    });
+    
+    // Actions to do on sign-in
+    firebase.auth().onAuthStateChanged(function(user) {
+        userID = user.uid;
+        // Get the state of the user's score at all times (but only after the userID has been obtained)
+        database.ref('Scores/' + userID).on('value', function(currentScoreData) {
+            console.log(currentScoreData.val());
+            scoreData = currentScoreData.val();
+        }, function(error) {
+            console.log("Error code: " + error.code);
+        })
+    });
+    
+    // This function will pull the scores from the database and sort into an array on the client
+    database.ref('Scores').orderByChild('score').on('value', function(scoreOrder) {
+        var scoreBoardTemp = []; // Use this instead of pushing directly to global
+        // Loops through the score object in order of the ascending score values of the children
+        scoreOrder.forEach(function(child) {
+            // console.log(child.val());
+            // console.log(child.val().name);
+            // console.log(child.val().score);
+            var scoreInstance = [child.val().name, child.val().score]; // Stores an array with both name and score
+            scoreBoardTemp.push(scoreInstance); // Pushes above array onto a separate one for a 2D array
+            })
+            scoreOrderedList = scoreBoardTemp.reverse(); // Preserves current sorted score array without pushing on duplicates
+            if (scoreOrderedList.length > 10) {
+                scoreOrderedList.length = 10; // Cut out extra values after the 12th score (scoreboard is top 10)
+            }
+        }, function(error) {
+            console.log("Error code: " + error.code);
+        });
+    
+    // Replace with preferred function
+    // Allows selection of element on page to append to
+    // Application of css classes like Bulma and Bootstrap can be done by adding them to scoreDiv
+    function listScores(location) {
+        var scoreDiv = $("<div id='scoreboard'>");
+        $("#scoreboard").remove(); // Remove leftover score divs from last game
+        $(location).append(scoreDiv);
+        for (i=0; i<scoreOrderedList.length; i++) {
+            $(scoreDiv).append('<h2 style="z-index: 3" class="has-text-white">' + 'Name: ' + scoreOrderedList[i][0] + '\t' + 'Score: ' + scoreOrderedList[i][1]);
+        }
+    };
+    
+    // Function for updating the user's score data without using overwrites
+    function storeNewScore(score) { 
+        if (scoreData.score < score) {
+            database.ref("Scores/" + userID).update({
+                score: score
+            })
+        }
+    };
+    
+    // Function for storing and setting the initial score
+    function storeInitialScore(username, score) {
+        database.ref("Scores/" + userID).set({
+            name: username,
             score: score
         })
-    }
-};
-
-// Function for storing and setting the initial score
-function storeInitialScore(username, score) {
-    database.ref("Scores/" + userID).set({
-        name: username,
-        score: score
-    })
-    userSet = true; // Confirm that the user has a Firebase Score
-};
-
-
-
+    };
+    
+    
+    
 $(document).ready(function () {
 
     // Global variables
@@ -332,19 +337,66 @@ $(document).ready(function () {
 
             //clear timer area of screen
             $("#timer-body").empty();
+            
+            // Create a form for entering username (if it isn't already logged)
+            if (scoreData === null) {
+                var userNameSubmitDiv = $("<div>");
+                userNameSubmitDiv.attr("id", "userName");
+                var userNameSubmitForm = $("<form>");
+                userNameSubmitForm.attr("id", "userForm");
+                $("body").append(userNameSubmitDiv);
+                $("#userName").append(userNameSubmitForm);
+                $("<input type='text' id='typeName'>").appendTo("#userForm");
+                $("<input type='submit' value='Enter Username' id='submitUser'>").appendTo("#userForm");
 
-            card.html("Game over. Your results: <br>");
+                // Only finish the rest of the game over state when the username is submitted (if needed)
+                $("#submitUser").click(function(event) {
+                    event.preventDefault();
+                    game.userName = $("#typeName").val().trim();
 
-            //$("#counter-number").text(game.timerCnt);
+                    // Store score to Firebase Database (and get username if needed)
+                    storeInitialScore(game.userName, game.rightAnswers);
+                    listScores(".field");
 
-            card.append("Correct Answers: " + game.rightAnswers + "<br>");
-            card.append("Incorrect Answers: " + game.wrongAnswers + "<br>");
-            // Call ScoreboardDisplay(UserName, game.rightAnswers); 
+                    card.html("Game over. Your results: <br>");
 
-            // reset game, character back to null & set 1st time character selected back to false
+                    //$("#counter-number").text(game.timerCnt);
+
+                    card.append("Correct Answers: " + game.rightAnswers + "<br>");
+                    card.append("Incorrect Answers: " + game.wrongAnswers + "<br>" );
+
+                    // Reset rightAnswers (after listing scores)
+                    game.rightAnswers = 0;
+                    game.wrongAnswers = 0;
+                    $("#userName").empty(); // Delete the form elements so that the event cannot be reused on accident
+                    })
+                }
+
+            else {
+                // Store score automatically without prompting user again
+                storeNewScore(game.rightAnswers);
+                listScores(".field");
+
+                card.html("Game over. Your results: <br>");
+
+                //$("#counter-number").text(game.timerCnt);
+
+                card.append("Correct Answers: " + game.rightAnswers + "<br>");
+                card.append("Incorrect Answers: " + game.wrongAnswers + "<br>" );
+                
+                // Reset rightAnswers (after listing scores)
+                game.rightAnswers = 0;
+                game.wrongAnswers = 0;
+            }
+
+            // Call ScoreboardDisplay(UserName, game.rightAnswers);
+    
+
+            // reset game
             character = "";
             firstcharClick = false;
-        },
+            },
+
 
         clicked: function (e) { //Check for right answer
             clearInterval(timer);
