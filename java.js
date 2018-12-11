@@ -456,8 +456,6 @@ $(document).ready(function () {
 
             $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
 
-            $(".media-left").prepend(src = 'https://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg');
-
             character = Thor;
 
             firstcharClick = true; //set the fact that you already clicked on a character
