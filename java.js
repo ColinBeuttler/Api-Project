@@ -88,6 +88,12 @@ $(document).ready(function () {
     var questions = 5;
     var firstcharClick = false;
 
+    var spidermanimage      = "http://i.annihil.us/u/prod/marvel/i/mg/3/50/526548a343e4b.jpg";
+    var ironmanimage        = "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55.jpg";
+    var avengersimage       = "http://i.annihil.us/u/prod/marvel/i/mg/9/20/5102c774ebae7.jpg";
+    var thorimage           = "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg";
+    var captainamericaimage = "http://i.annihil.us/u/prod/marvel/i/mg/2/c0/5261a81d0154e.jpg";
+
     //Array of 5 Marvel Character Objects with 5 questions and 3 choices
 
     var SpiderMan = [
@@ -398,6 +404,8 @@ $(document).ready(function () {
 
             $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
 
+            $(".media-left").prepend(src = 'https://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg');
+
             character = Thor;
 
             firstcharClick = true; //set the fact that you already clicked on a character
@@ -406,13 +414,9 @@ $(document).ready(function () {
         }
         else if (firstcharClick) {      //Check if already clicked on Thor, if not it's another character
             if (character === Thor) {
-
-                $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
-
-                game.getnextQuestion(character);
+                // don't do anything as game needs to finish or next question comes up after answer current
             }
         }
-        // otherwise clicked on another character without game being over
     });
 
     $(document).on("click", "#spiderman", function () {
@@ -426,14 +430,8 @@ $(document).ready(function () {
 
             game.getnextQuestion(character);
         }
-        else if (firstcharClick) {
-            //Check if already clicked on SpiderMan, if not it's another character
-            if (character === SpiderMan) {
-
-                $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
-
-                game.getnextQuestion(character);
-            }
+        else if (character === SpiderMan) {
+            //Ignore button, already clicked on SpiderMan, do nothing until game is over
         }
     });
 
@@ -448,14 +446,8 @@ $(document).ready(function () {
 
             game.getnextQuestion(character);
         }
-        else if (firstcharClick) {
-            //Check if already clicked on IronMan, if not it's another character
-            if (character === IronMan) {
-
-                $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
-
-                game.getnextQuestion(character);
-            }
+        else if (character === IronMan) {
+            //Check if already clicked on IronMan, then need to finish game
         }
     });
 
@@ -470,14 +462,8 @@ $(document).ready(function () {
 
             game.getnextQuestion(character);
         }
-        else if (firstcharClick) {
-            //Check if already clicked on IronMan, if not it's another character
-            if (character === Avengers) {
-
-                $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
-
-                game.getnextQuestion(character);
-            }
+        else if (character === Avengers) {
+            //Already clicked on AVengers button and game is not over yet
         }
     });
 
@@ -493,14 +479,9 @@ $(document).ready(function () {
             game.getnextQuestion(character);
         }
 
-        else if (firstcharClick) {
-            //Check if already clicked on IronMan, if not it's another character
-            if (character === Avengers) {
-
-                $("#timer-body").prepend("Time Remaining: <span id='counter-number'>30</span> Seconds");
-
-                game.getnextQuestion(character);
-            }
+        else if (character === Avengers) {
+            //If already clicked on Avengers button, need to finish current game 
+        
         }
     });
 
